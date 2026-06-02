@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Theme Selector</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: background 1s ease, color 1s ease;
+
+        }
+
+        h2 {
+            font-family: "Dancing Script", cursive;
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #ff6a00, #ee0979);
+            border-radius: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+            transition: all 0.5s ease;
+        }
+
+        select {
+            padding: 14px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            background: linear-gradient(90deg, #ffffffcc, #f1f1f1cc);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            color: #333;
+        }
+
+        select:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        #message {
+            margin-top: 30px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #ee0979;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .light {
+            background: linear-gradient(to right, #f8f9fa, #e0e0e0, #fdfbfb);
+            color: #222;
+        }
+
+        .dark {
+            background: linear-gradient(to right, #000000, #434343, #1c1c1c);
+            color: #f8f8f8;
+        }
+
+        .colorful {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #c2e9fb);
+            color: #2e2e2e;
+        }
+    </style>
+</head>
+<body class="light">
+    <h2>🎨 Choose Your Website Theme</h2>
+
+    <select id="theme">
+        <option value="light">🌞 Light Mode</option>
+        <option value="dark">🌙 Dark Mode</option>
+        <option value="colorful">🌈 Colorful Mode</option>
+    </select>
+
+    <p id="message">Select a theme to Change the look!</p>
+
+    <footer>&copy; 2025 Created by Nabeel Abbas. All Rights Reserved.</footer>
+ 
+    <script>
+        const themeSelect = document.getElementById("theme");
+        const message = document.getElementById("message");
+        const body = document.body;
+
+        themeSelect.addEventListener("change", function() {
+            let selectedTheme = themeSelect.value;
+            
+            body.classList.remove("light", "dark", "colorful");
+
+            switch(selectedTheme) {
+                case "light":
+                    body.classList.add("light");
+                    message.textContent = "You Selected Light Mode 🌞";
+                    break;
+
+                case "dark":
+                    body.classList.add("dark");
+                    message.textContent = "You Selected Dark Mode 🌙";
+                    break;
+                    
+                case "colorful":
+                    body.classList.add("colorful");
+                    message.textContent = "You Selected Colorful Mode 🌈";
+                    break;
+                    
+                default:
+                    message.textContent = "Please select a valid theme!";   
+            }
+        });
+    </script>  
+</body>
+</html>
